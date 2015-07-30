@@ -1,0 +1,22 @@
+{
+  "name": "5.4-turn-based-game",
+  "version": "0.0.0",
+  "authors": [
+    "Marvin Santiago <marvin.santiago@ymail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.1",
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3",
+    "reset-css": "~2.0.2011012602",
+    "handlebars": "~3.0.3"
+  }
+}
