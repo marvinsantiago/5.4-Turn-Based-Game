@@ -36,10 +36,6 @@ this.weapon = function() {
   return this.weapon;
 };
 
-this.imgUrl = function() {
-  return this.imgUrl;
-};
-
 var heroes = [
   new Hero('Arrow', 200, 'arrow', 'arrow.png'),
   new Hero('Arsenal', 200, 'arrow', 'arsenal.jpg'),

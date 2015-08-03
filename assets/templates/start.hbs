@@ -3,6 +3,8 @@
 <h1>Select Hero</h1>
 {{#each this as |hero|}}
 <img src="images/{{ hero.imgUrl }}" alt="{{ hero.name }}">
+<div>
 <button class="choose-hero" data-index="{{ @index }}">{{ hero.name }}</button>
+</div>
 
 {{/each}}
