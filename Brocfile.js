@@ -19,6 +19,7 @@ var appJs = concat(templatesAndScripts, {outputFile: 'app.js', inputFiles: [
     'js/setup.js',
     'templates/**/*.js',
     'js/character.js',
+    'js/game.js',
     'js/app.js',
   ],});
 

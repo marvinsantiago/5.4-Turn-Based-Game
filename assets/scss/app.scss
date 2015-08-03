@@ -1,0 +1,32 @@
+@import 'reset';
+$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts";
+
+// @import 'font-awesome';
+// @import 'bourbon';
+// @import 'neat';
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Your SASS Journey Starts Here
+
+.game-screen {
+    text-align: center;
+}
+h1 {
+    font-size: 2em;
+    padding: 10px;
+}
+button {
+    font-size: 1em;
+    padding-bottom: 5px;
+    border-radius: 2px;
+
+}
+.choose-weapon {
+}
