@@ -1,7 +1,8 @@
-function Enemy(name, health, weapon) {
+function Enemy(name, health, weapon, imgURL) {
   this.name = name;
   this.health = health;
   this.weapon = weapon;
+  this.imgURL = imgURL;
 
   this.takeDamage = function(damage) { hitPoints -=  damage; };
 
@@ -31,6 +32,6 @@ this.weapon = function() {
 };
 
 var enemies = [
-  new Enemy('Slade', 300, 'sword'),
-  new Enemy('Malcolm Merlyn', 200, 'arrow'),
+  new Enemy('Slade', 300, 'sword', 'sladewilson.png'),
+  new Enemy('Malcolm Merlyn', 200, 'arrow', 'malcolmmerlyn.jpg'),
 ];
