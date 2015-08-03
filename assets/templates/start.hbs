@@ -1,7 +1,7 @@
-<h1>Duke It Out</h1>
+<h1>Protect your city</h1>
 
-<h1>Select Weapon</h1>
+<h1>Select Hero</h1>
+{{#each this as |hero|}}
+<button class="choose-hero" data-index="{{ @index }}">{{ hero.name }}</button>
 
-<button class="choose-weapon">Sword</button>
-<button class="choose-weapon">Hands</button>
-<button class="choose-weapon">Hammers</button>
+{{/each}}
