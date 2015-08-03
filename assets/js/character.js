@@ -1,4 +1,4 @@
-function Character(options) {
+  function Character(options) {
   options = options || {};
   var hitPoints = options.hitPoints || 100;
   this.weapons = options.weapons || {};

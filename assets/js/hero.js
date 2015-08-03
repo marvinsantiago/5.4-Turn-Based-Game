@@ -3,10 +3,11 @@
  * @param {[type]}
  * @param {[type]}
  */
-function Hero(name, health, weapon) {
+function Hero(name, health, weapon, imgUrl) {
   this.name = name;
   this.health = health;
   this.weapon = weapon;
+  this.imgUrl = imgUrl;
 
   this.takeDamage = function(damage) { hitPoints -=  damage; };
 
@@ -35,8 +36,12 @@ this.weapon = function() {
   return this.weapon;
 };
 
+this.imgUrl = function() {
+  return this.imgUrl;
+};
+
 var heroes = [
-  new Hero('Arrow', 200, 'arrow'),
-  new Hero('Arsenal', 200, 'arrow'),
-  new Hero('Diggle', 200, 'hands'),
+  new Hero('Arrow', 200, 'arrow', 'arrow.png'),
+  new Hero('Arsenal', 200, 'arrow', 'arsenal.jpg'),
+  new Hero('Diggle', 200, 'hands', 'diggle.png'),
 ];
