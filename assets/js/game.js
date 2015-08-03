@@ -1,5 +1,5 @@
 function Game() {
-  this.players = [];
+  this.hero = [];
   this.gameOver = true;
   this.playerWins = false;
 }
