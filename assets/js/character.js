@@ -31,19 +31,3 @@ Character.prototype = _.extend({
     // hostile.takeDamage(this.getAttackStrength(weapon));
   },
 }, Backbone.Events);
-
-char = new Character({hitPoints: 200, weapons: {hammer: 20, sword: 15}});
-enemy = new Character({weapons: {hands: 11, sword: 15}});
-
-// Adds an extra callback to be run ONLY when the enemy instance is attacked
-enemy.on('attacked', function(amount) {
-  if (amount > 10) {
-    console.log('You are a strong foe!');
-  }
-});
-
-char.attack(enemy, 'hammer');
-enemy.attack(char, 'hands');
-
-console.log('character: ', char.getHealth());
-console.log('enemy: ', enemy.getHealth());

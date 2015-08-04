@@ -19,6 +19,7 @@
     "reset-css": "~2.0.2011012602",
     "handlebars": "~3.0.3",
     "bourbon": "~4.2.3",
-    "neat": "~1.7.2"
+    "neat": "~1.7.2",
+    "fontawesome": "~4.4.0"
   }
 }

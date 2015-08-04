@@ -8,4 +8,11 @@ $('.game-screen').on('click', '.choose-hero', function() {
     game.attack();
   });
 
+  game.on('change', function() {
+    if (game.gameOver) {
+      $('.game-screen').html(AppTemplates.gameover(game));
+    } else {
+      $('.game-screen').html(AppTemplates.battle(game));
+    }
+  });
 });

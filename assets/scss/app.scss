@@ -1,9 +1,8 @@
 @import 'reset';
 $fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts";
-
-// @import 'font-awesome';
-// @import 'bourbon';
-// @import 'neat';
+@import 'font-awesome';
+@import 'bourbon';
+@import 'neat';
 
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
@@ -14,9 +13,14 @@ html {
 }
 
 // Your SASS Journey Starts Here
-
-.game-screen {
+body {
+    @include outer-container(980px);
+}
+.main {
     text-align: center;
+    overflow: auto;
+    @include outer-container;
+    background-color: #5A9168;
 }
 h1 {
     font-size: 2em;
@@ -27,16 +31,26 @@ button {
     padding-bottom: 5px;
     border-radius: 2px;
 }
+.heroes {
+    @include span-columns(6);
+    @include omega(2n);
+    background-color: #5A9168;
+
+}
+.heroes {
+    @include outer-container;
+}
 .attack-mode {
     text-align: center;
 }
 .hero-side {
-    float: left;
+    @include span-columns(3);
 }
 .enemy-side {
     float: right;
 }
 img {
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
+    border-radius: 5px;
 }
