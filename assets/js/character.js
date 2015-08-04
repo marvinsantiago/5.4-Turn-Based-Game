@@ -1,4 +1,4 @@
-  function Character(options) {
+function Character(options) {
   options = options || {};
   var hitPoints = options.hitPoints || 100;
   this.weapons = options.weapons || {};
@@ -30,8 +30,12 @@ Character.prototype = _.extend({
     // Directly damaging the enemy
     // hostile.takeDamage(this.getAttackStrength(weapon));
   },
+
+  isDead: function() {
+    return this.getHealth() <= 0;
+  },
 }, Backbone.Events);
 
-// Handlebars.registerHelper('health', function(getHealth) {
-//   return character.getHealth();
-// });
+Handlebars.registerHelper('health', function(character) {
+  return character.getHealth();
+});

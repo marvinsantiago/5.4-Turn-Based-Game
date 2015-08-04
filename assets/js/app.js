@@ -9,7 +9,7 @@ $('.game-screen').on('click', '.choose-hero', function() {
   });
 
   game.on('change', function() {
-    if (game.gameOver) {
+    if (game.gameOver()) {
       $('.game-screen').html(AppTemplates.gameover(game));
     } else {
       $('.game-screen').html(AppTemplates.battle(game));

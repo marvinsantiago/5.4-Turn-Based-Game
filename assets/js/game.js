@@ -1,7 +1,7 @@
 function Game(hero) {
   this.hero = hero;
   this.enemy = _.sample(enemies);
-  this.gameOver = true;
+  this.heroWins = false;
 }
 
 Game.prototype = _.extend({
@@ -14,5 +14,12 @@ Game.prototype = _.extend({
     this.trigger('change');
   },
 
+  gameOver: function() {
+    if (this.enemy.isDead()) {
+      this.heroWins = true;
+    }
+
+    return this.hero.isDead() || this.enemy.isDead();
+  },
 }, Backbone.Events);
 
