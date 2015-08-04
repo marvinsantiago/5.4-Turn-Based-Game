@@ -13,44 +13,42 @@ html {
 }
 
 // Your SASS Journey Starts Here
-body {
-    @include outer-container(980px);
-}
 .main {
+    @include outer-container(980px);
     text-align: center;
-    overflow: auto;
-    @include outer-container;
-    background-color: #5A9168;
 }
 h1 {
     font-size: 2em;
     padding: 10px;
+    text-align: center;
 }
 button {
     font-size: 1em;
-    padding-bottom: 5px;
     border-radius: 2px;
 }
 .heroes {
-    @include span-columns(6);
-    @include omega(2n);
-    background-color: #5A9168;
+    @include span-columns(4);
+    @include omega(3n);
+    text-align: center;
+    // background-color: #5A9168;
 
 }
-.heroes {
-    @include outer-container;
-}
 .attack-mode {
-    text-align: center;
+    // text-align: center;
 }
-.hero-side {
-    @include span-columns(3);
-}
-.enemy-side {
-    float: right;
+.battle {
+    @include outer-container;
+    .hero-side {
+        @include span-columns(6 of 12);
+        // text-align: center;
+    }
+    .enemy-side {
+        @include span-columns(6 of 12);
+        // text-align: center;
+    }
 }
 img {
-    height: 150px;
-    width: 150px;
+    height: 250px;
+    width: 250px;
     border-radius: 5px;
 }

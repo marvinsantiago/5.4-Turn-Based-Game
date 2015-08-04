@@ -32,6 +32,6 @@ Character.prototype = _.extend({
   },
 }, Backbone.Events);
 
-Handlebars.registerHelper('health', function(getHealth) {
-  return character.getHealth();
-});
+// Handlebars.registerHelper('health', function(getHealth) {
+//   return character.getHealth();
+// });
