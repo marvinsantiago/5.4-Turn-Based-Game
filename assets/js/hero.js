@@ -3,7 +3,7 @@
  * @param {[type]}
  * @param {[type]}
  */
-function Hero(name, health, weapon, imgUrl) {
+function Hero(name, health, weapons, imgUrl) {
   Character.call(this, {hitPoints: health, weapons: weapons});
   this.name = name;
   this.imgUrl = imgUrl;

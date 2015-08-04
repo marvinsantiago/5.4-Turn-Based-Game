@@ -1,4 +1,4 @@
-function Enemy(name, health, weapon, imgURL) {
+function Enemy(name, health, weapons, imgURL) {
   Character.call(this, {hitPoints: health, weapons: weapons});
   this.name = name;
   this.imgURL = imgURL;
