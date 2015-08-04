@@ -31,3 +31,7 @@ Character.prototype = _.extend({
     // hostile.takeDamage(this.getAttackStrength(weapon));
   },
 }, Backbone.Events);
+
+Handlebars.registerHelper('health', function(getHealth) {
+  return character.getHealth();
+});
