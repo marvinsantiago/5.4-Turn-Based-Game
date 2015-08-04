@@ -1,6 +1,6 @@
-function Game() {
-  this.hero = [];
-  this.enemy = [];
+function Game(hero) {
+  this.hero = hero;
+  this.enemy = _.sample(enemies);
   this.gameOver = true;
   this.playerWins = false;
 }
@@ -8,13 +8,10 @@ function Game() {
 Game.prototype = _.extend({
   constructor: Game,
 
-  attack: function(enemy, ability) {
-    enemy.trigger('attacked', thisgetAttackStrength(ability));
+  attack: function() {
+    this.hero.attack(this.enemy);
+    this.enemy.attack(this.hero);
   },
 
 }, Backbone.Events);
-
-this.on('attacked', function(amount) {
-    this.takeDamage(amount);
-  });
 
