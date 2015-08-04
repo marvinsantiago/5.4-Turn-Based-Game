@@ -1,28 +1,18 @@
 AppTemplates = {};
 
-AppTemplates['battle'] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams) {
+AppTemplates['battle'] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<div class=\"hero-side\">\n    <img src=\"images/"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.imgURL : stack1), depth0))
+  return "\n<div class=\"hero-side\">\n    <img src=\"images/"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.hero : depth0)) != null ? stack1.imgURL : stack1), depth0))
     + "\" alt=\""
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.name : stack1), depth0))
-    + "\">\n    <p>Health</p>\n</div>\n";
-},"3":function(depth0,helpers,partials,data,blockParams) {
-    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
-
-  return "<div class=\"enemy-side\">\n    <img src=\"images/"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.imgURL : stack1), depth0))
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.hero : depth0)) != null ? stack1.name : stack1), depth0))
+    + "\">\n    <p>Health</p>\n</div>\n\n<div class=\"enemy-side\">\n    <img src=\"images/"
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.enemy : depth0)) != null ? stack1.imgURL : stack1), depth0))
     + "\" alt=\""
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.name : stack1), depth0))
-    + "\">\n    <p>Health</p>\n</div>\n";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data,blockParams) {
-    var stack1;
-
-  return ((stack1 = helpers.each.call(depth0,depth0,{"name":"each","hash":{},"fn":this.program(1, data, 1, blockParams),"inverse":this.noop,"data":data,"blockParams":blockParams})) != null ? stack1 : "")
-    + ((stack1 = helpers.each.call(depth0,depth0,{"name":"each","hash":{},"fn":this.program(3, data, 1, blockParams),"inverse":this.noop,"data":data,"blockParams":blockParams})) != null ? stack1 : "")
-    + "<div>\n<button class=\"attack-mode\">Attack</button>\n</div>\n\n\n";
-},"useData":true,"useBlockParams":true});
+    + alias2(alias1(((stack1 = (depth0 != null ? depth0.enemy : depth0)) != null ? stack1.name : stack1), depth0))
+    + "\">\n    <p>Health</p>\n</div>\n\n<div>\n<button class=\"attack-mode\">Attack</button>\n</div>\n\n\n";
+},"useData":true});
 AppTemplates['game-over'] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "<h1>You Win!</h1>\n";
 },"3":function(depth0,helpers,partials,data) {
@@ -36,7 +26,7 @@ AppTemplates['start'] = Handlebars.template({"1":function(depth0,helpers,partial
     var stack1, helper, alias1=this.lambda, alias2=this.escapeExpression;
 
   return "<img src=\"images/"
-    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.imgUrl : stack1), depth0))
+    + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.imgURL : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.name : stack1), depth0))
     + "\">\n<div>\n<button class=\"choose-hero\" data-index=\""
@@ -105,10 +95,10 @@ console.log('enemy: ', enemy.getHealth());
  * @param {[type]}
  * @param {[type]}
  */
-function Hero(name, health, weapons, imgUrl) {
+function Hero(name, health, weapons, imgURL) {
   Character.call(this, {hitPoints: health, weapons: weapons});
   this.name = name;
-  this.imgUrl = imgUrl;
+  this.imgURL = imgURL;
 }
 
 Hero.prototype = _.extend({constructor: Hero}, Character.prototype);
