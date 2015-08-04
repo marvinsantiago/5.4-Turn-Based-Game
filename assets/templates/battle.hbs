@@ -1,11 +1,15 @@
+{{#each this as |hero|}}
 <div class="hero-side">
-    <img src="{{ hero.imgURL }}" alt="{{ hero.name }}">
+    <img src="images/{{ hero.imgURL }}" alt="{{ hero.name }}">
     <p>Health</p>
 </div>
+{{/each}}
+{{#each this as |enemy|}}
 <div class="enemy-side">
-    <img src="{{ enemy.imgURL }}" alt="{{ enemy.name }}">
+    <img src="images/{{ enemy.imgURL }}" alt="{{ enemy.name }}">
     <p>Health</p>
 </div>
+{{/each}}
 <div>
 <button class="attack-mode">Attack</button>
 </div>
