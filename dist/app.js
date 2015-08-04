@@ -3,41 +3,41 @@ AppTemplates = {};
 AppTemplates['battle'] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "\n<div class=\"hero-side\">\n    <img src=\"images/"
+  return "<div class=\"battle\">\n<div class=\"hero-side\">\n    <img src=\"images/"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.hero : depth0)) != null ? stack1.imgURL : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.hero : depth0)) != null ? stack1.name : stack1), depth0))
-    + "\">\n    <p>Health</p>\n</div>\n\n<div class=\"enemy-side\">\n    <img src=\"images/"
+    + "\">\n</div>\n\n<div class=\"enemy-side\">\n    <img src=\"images/"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.enemy : depth0)) != null ? stack1.imgURL : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.enemy : depth0)) != null ? stack1.name : stack1), depth0))
-    + "\">\n    <p>Health</p>\n</div>\n\n<div>\n<button class=\"attack-mode\">Attack</button>\n</div>\n\n\n";
+    + "\">\n</div>\n\n<div>\n<button class=\"attack-mode\">Attack</button>\n</div>\n</div>\n\n\n";
 },"useData":true});
-AppTemplates['game-over'] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+AppTemplates['gameover'] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "<h1>You Win!</h1>\n";
 },"3":function(depth0,helpers,partials,data) {
-    return "<h1>You Lose!</h1>\n";
+    return "<h1>You Lose and failed this city!</h1>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.playerWins : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "");
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.hero : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "");
 },"useData":true});
 AppTemplates['start'] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams) {
     var stack1, helper, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "<img src=\"images/"
+  return "        <img src=\"images/"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.imgURL : stack1), depth0))
     + "\" alt=\""
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.name : stack1), depth0))
-    + "\">\n<div>\n<button class=\"choose-hero\" data-index=\""
+    + "\">\n        <button class=\"choose-hero\" data-index=\""
     + alias2(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"index","hash":{},"data":data,"blockParams":blockParams}) : helper)))
     + "\">"
     + alias2(alias1(((stack1 = blockParams[0][0]) != null ? stack1.name : stack1), depth0))
-    + "</button>\n</div>\n\n";
+    + "</button>\n    </div>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data,blockParams) {
     var stack1;
 
-  return "<h1>Protect your city</h1>\n\n<h1>Select Hero</h1>\n"
+  return "    <h1>Select Hero and Protect your city</h1>\n    <div class=\"heroes\">\n"
     + ((stack1 = helpers.each.call(depth0,depth0,{"name":"each","hash":{},"fn":this.program(1, data, 1, blockParams),"inverse":this.noop,"data":data,"blockParams":blockParams})) != null ? stack1 : "");
 },"useData":true,"useBlockParams":true});
   function Character(options) {
@@ -74,21 +74,9 @@ Character.prototype = _.extend({
   },
 }, Backbone.Events);
 
-char = new Character({hitPoints: 200, weapons: {hammer: 20, sword: 15}});
-enemy = new Character({weapons: {hands: 11, sword: 15}});
-
-// Adds an extra callback to be run ONLY when the enemy instance is attacked
-enemy.on('attacked', function(amount) {
-  if (amount > 10) {
-    console.log('You are a strong foe!');
-  }
-});
-
-char.attack(enemy, 'hammer');
-enemy.attack(char, 'hands');
-
-console.log('character: ', char.getHealth());
-console.log('enemy: ', enemy.getHealth());
+// Handlebars.registerHelper('health', function(getHealth) {
+//   return character.getHealth();
+// });
 
 /**
  * @param {[type]}
@@ -126,7 +114,6 @@ function Game(hero) {
   this.hero = hero;
   this.enemy = _.sample(enemies);
   this.gameOver = true;
-  this.playerWins = false;
 }
 
 Game.prototype = _.extend({
@@ -135,6 +122,8 @@ Game.prototype = _.extend({
   attack: function() {
     this.hero.attack(this.enemy);
     this.enemy.attack(this.hero);
+
+    this.trigger('change');
   },
 
 }, Backbone.Events);
@@ -150,5 +139,12 @@ $('.game-screen').on('click', '.choose-hero', function() {
     game.attack();
   });
 
+  game.on('change', function() {
+    if (game.gameOver) {
+      $('.game-screen').html(AppTemplates.gameover(game));
+    } else {
+      $('.game-screen').html(AppTemplates.battle(game));
+    }
+  });
 });
 //# sourceMappingURL=app.map
