@@ -3,10 +3,10 @@
  * @param {[type]}
  * @param {[type]}
  */
-function Hero(name, health, weapons, imgUrl) {
+function Hero(name, health, weapons, imgURL) {
   Character.call(this, {hitPoints: health, weapons: weapons});
   this.name = name;
-  this.imgUrl = imgUrl;
+  this.imgURL = imgURL;
 }
 
 Hero.prototype = _.extend({constructor: Hero}, Character.prototype);
