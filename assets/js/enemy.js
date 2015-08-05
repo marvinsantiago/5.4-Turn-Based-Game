@@ -7,6 +7,6 @@ function Enemy(name, health, weapons, imgURL) {
 Enemy.prototype = _.extend({constructor: Enemy}, Character.prototype);
 
 var enemies = [
-  new Enemy('Slade', 300, 'sword', 'sladewilson.png'),
+  new Enemy('Slade', {hitPoints: 300, weapons: {sword: 35, Mirakuruhands: 60}}, 'sladewilson.png'),
   new Enemy('Malcolm Merlyn', 200, 'arrow', 'malcolmmerlyn.jpg'),
 ];
