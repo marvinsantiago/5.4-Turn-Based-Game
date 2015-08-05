@@ -1,0 +1,9 @@
+{{!-- <div class="main"> --}}
+    <h1>Select Hero and Protect your city</h1>
+    <div class="heroes">
+        {{#each this as |hero|}}
+        <img src="images/{{ hero.imgURL }}" alt="{{ hero.name }}">
+        <button class="choose-hero" data-index="{{ @index }}">{{ hero.name }}</button>
+    </div>
+        {{/each}}
+{{!-- </div> --}}

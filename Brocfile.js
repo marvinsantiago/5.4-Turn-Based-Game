@@ -19,9 +19,20 @@ var appJs = concat(templatesAndScripts, {outputFile: 'app.js', inputFiles: [
     'js/setup.js',
     'templates/**/*.js',
     'js/character.js',
+    'js/hero.js',
+    'js/enemy.js',
+    'js/game.js',
     'js/app.js',
   ],});
 
-var compiledSass = sass(['assets/scss', 'bower_components/reset-css'], 'app.scss', 'app.css');
+var includePaths = [
+    'assets/scss',
+    'bower_components/reset-css',
+    'bower_components/bourbon/app/assets/stylesheets',
+    'bower_components/fontawesome/scss',
+    'bower_components/neat/app/assets/stylesheets',
+];
+
+var compiledSass = sass(includePaths, 'app.scss', 'app.css');
 
 module.exports = mergeTrees(['public', appJs, compiledSass, bowerStuff]);

@@ -1,0 +1,54 @@
+@import 'reset';
+$fa-font-path:        "//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts";
+@import 'font-awesome';
+@import 'bourbon';
+@import 'neat';
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Your SASS Journey Starts Here
+.main {
+    @include outer-container(980px);
+    text-align: center;
+}
+h1 {
+    font-size: 2em;
+    padding: 10px;
+    text-align: center;
+}
+button {
+    font-size: 1em;
+    border-radius: 2px;
+}
+.heroes {
+    @include span-columns(4);
+    @include omega(3n);
+    text-align: center;
+    // background-color: #5A9168;
+
+}
+.attack-mode {
+    // text-align: center;
+}
+.battle {
+    @include outer-container;
+    .hero-side {
+        @include span-columns(6 of 12);
+        // text-align: center;
+    }
+    .enemy-side {
+        @include span-columns(6 of 12);
+        // text-align: center;
+    }
+}
+img {
+    height: 250px;
+    width: 250px;
+    border-radius: 5px;
+}

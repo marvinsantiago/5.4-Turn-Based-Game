@@ -17,6 +17,9 @@
     "jquery": "~2.1.4",
     "underscore": "~1.8.3",
     "reset-css": "~2.0.2011012602",
-    "handlebars": "~3.0.3"
+    "handlebars": "~3.0.3",
+    "bourbon": "~4.2.3",
+    "neat": "~1.7.2",
+    "fontawesome": "~4.4.0"
   }
 }
